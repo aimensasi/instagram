@@ -23,6 +23,8 @@ $(document).ready(function(){
 		}
 	}
 
+	
+
 	$('.form').on('submit', function(e){
 		e.preventDefault();
 		var $form = $(this);
@@ -31,11 +33,8 @@ $(document).ready(function(){
 			sendAjax('/users', $form.serialize());
 		}else if ($form.attr('data-name') == 'log-in') {
 			sendAjax('/sessions', $form.serialize());
-		}else if ($form.attr('data-name') == 'edit-user') {
-			sendAjax($form.attr('action'), $form.serialize());
-		}else if ($form.attr('data-name') == 'change-password') {
-			sendAjax($form.attr('action'), $form.serialize());
 		}
+
 	});
 
 
@@ -47,20 +46,18 @@ $(document).ready(function(){
 			data: data,
 			cache: false,
 			success: function(data){
-				// if (data.status == 200) {
-				// 	window.location = data.url
-				// }else if (data.status == 400) {
-				// 	$('.message').text(data.message);
-				// 	$('.btn-fb').prop('disabled', false);
-				// }
-				console.log(data);
+				if (data.status == 200) {
+					window.location = data.url
+				}else if (data.status == 400) {
+					$('.message').text(data.message);
+					$('.btn-fb').prop('disabled', false);
+				}
 			},
 			error: function(err){
 				console.log(err);
 			}
 		});
 	}
-
 });
 
 

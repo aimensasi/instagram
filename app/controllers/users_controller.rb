@@ -47,9 +47,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(create_params)
-    # byebug
     if request.xhr?
-      
       if @user.save
         log_in @user
         flash.notice = "Thanks, For Joining Instagram"
@@ -62,12 +60,32 @@ class UsersController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @user.update(create_params)
-        format.js { flash.notice = "Profile Saved" }
-      else
-        format.js { flash.alert = @user.errors.full_messages.first }
-      end
+    @user = User.find_by_id(params[:id])
+    if request.xhr?
+      if update_params.present?
+
+        if @user.update(update_params)
+          render :json => {:status => 200, :type => "edit-user", :message => "Profile Saved"}
+        else
+          puts " Erorr:: #{@user.errors.full_messages}"
+          render :json => {:status => 400, :type => "edit-user", :message => "There was a problem saving your profile. Please try again soon."}
+        end
+
+      elsif password_params.present?
+
+        if @user.authenticate(password_params[:old_password])
+          @user.password = password_params[:new_password]
+          if @user.save
+            render :json => {:status => 200, :type => "change-password", :message => "Password Changed Successfully"}
+          else
+            render :json => {:status => 400, :type => "change-password", :message => @user.errors.full_messages.first}  
+          end
+        else
+          render :json => {:status => 400, :type => "change-password", 
+                           :message => "Your old password was entered incorrectly. Please enter it again."}
+        end
+      end  
+
     end
   end
 
@@ -84,14 +102,14 @@ class UsersController < ApplicationController
     end
 
     def create_params
-      params.fetch(:user, {}).permit(:name, :username, :email, :password)
+      params.require(:user).permit(:name, :username, :email, :password)
     end
 
-    def edit_params
-      params.fetch(:user, {}).permit(:name, :username, :email, :website, :bio, :gender, :phone_number)
+    def update_params
+      params.require(:user).permit(:name, :username, :email, :website, :bio, :gender, :phone_number)
     end
 
-    def change_password_params
-      params.fetch(:user, {}).permit(:old_password, :new_password)
+    def password_params
+      params.require(:user).permit(:old_password, :new_password, :confirm_password)
     end
 end
