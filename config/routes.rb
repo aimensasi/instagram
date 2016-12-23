@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
-  resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  
+  
+  post 'sessions/' => 'sessions#create'
+  delete '/log_out' => 'sessions#destroy'
+
+	get "/sign_up" => "users#new"
+  
+  resources :users, :except => [:new]
+  
+  resources :posts
+  root "posts#index"
 end

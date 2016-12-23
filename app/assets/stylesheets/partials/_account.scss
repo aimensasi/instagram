@@ -1,0 +1,128 @@
+// $btn-default: #3897f0;
+// $bg-color: #fafafa;
+// $black: #222;
+// $white: #fff;
+// $dark-gray: #999;
+// $light-gray: #dbdbdb;
+// $error-color: #ff5a5f;
+// $success-color: rgba(32, 169, 152, 0.77);
+
+.account-view{
+	width: 935px;
+	height: 667px;
+	background-color: $white;
+	border: 1px solid $light-gray;
+	margin-top: 4rem;
+	margin-bottom: 3rem;
+	.col-3{
+		border-right: 1px solid $light-gray;
+		height: 667px;
+		width: 237px;
+		padding-left: 0;
+		.nav-tabs{
+			border: none;
+			.nav-item{
+				margin-left: 0 !important;
+				width: 100%;
+				.tab-pills{
+					border: none;
+					border-left: 1px solid $light-gray;
+					border-radius: 0px !important;
+					margin-bottom: 1px;
+					transition: border-color .7s;
+					padding: 0.7em 1em !important;
+					color: $black;
+					font-size: 16px;
+					&:hover,
+					&:focus{
+						border-left-color: $black !important;					
+					}
+				}
+				.tab-pills.active{
+					border-left-color: $black !important;
+				}
+			}
+		}
+
+	}
+}
+
+.account-view{
+	.col-9{
+		height: 667px;
+		width: 696px;
+		.edit-profile-col{
+			width: 500px;
+			margin-top: 30px;
+			.edit-form{
+				margin-top: 3rem;
+				input.form-control,
+				textarea.form-control{
+					height: 32px;
+					width: 355px;	
+				}
+				textarea.form-control{
+					height: 60px;
+				}
+				.form-group {
+				  margin-bottom: 14px;
+				}
+				.col-form-label{
+					font-size: 14.4px;
+					font-weight: 500;
+					padding-left: 0;
+					width: 115px;
+					text-align: right;
+				}
+				h2.title {
+				  font-size: 16px;
+				  margin-left: 25%;
+				  color: $dark-gray;
+				  font-weight: 500;
+				  margin-bottom: 8px;
+				  margin-top: 25px;
+				}
+			}
+		}
+		.change-password {
+			.offset-md-4{
+				margin-left: 27.333333%;
+			}
+			label{
+				text-align: right;
+				font-size: 15px;
+			}
+		}
+		.btn-save{
+			border: 1px solid $btn-default;
+			color: $btn-default;
+			background: transparent;
+			width: 141px;;
+			font-size: 14px;
+		}
+
+		.message{
+			font-size: 15px;
+		  font-weight: 300;
+		  margin-top: 8px;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,116 @@
-<h1>Editing User</h1>
+<div class="container account-view">
+  <div class="row">
+    <div class="col-md-3 col-3">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link tab-pills active" data-toggle="tab" href="#edit-profile" role="tab">Edit Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link tab-pills" data-toggle="tab" href="#change-password" role="tab">Change Password</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-9 col-9">
+      <div class="tab-content">
+        <div class="tab-pane active" id="edit-profile" role="tabpanel">
+          <div class="container edit-profile-col">
+            <div class="row img-row">
+              <div class="col-md-3">
+                <%= image_tag(@user.profile_pic ? @user.profile_pic : "avatar_default.png", 
+                              :size => "80x80", :class => "profile-pic rounded-circle") %>
+              </div>
+              <div class="col-md-3">
+                <h2 class="username"><%= @user.username %></h2>
+              </div>
+            </div>
+            <div class="row edit-form">
+              <%= form_for @user, :html => {:class => "form", :'data-name' => "edit-user"} do  |f| %>
+                <div class="form-group row">
+                  <%= f.label :name, :class => "col-xs-2 col-form-label" %>
+                  <div class="col-xs-8">
+                    <%= f.text_field :name, :class => "form-control" %>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <%= f.label :username, :class => "col-xs-2 col-form-label" %>
+                  <div class="col-xs-8">
+                    <%= f.text_field :username, :class => "form-control" %>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <%= f.label :website, :class => "col-xs-2 col-form-label" %>
+                  <div class="col-xs-8">
+                    <%= f.text_field :website, :class => "form-control" %>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <%= f.label :bio, :class => "col-xs-2 col-form-label" %>
+                  <div class="col-xs-8">
+                    <%= f.text_area :bio, :class => "form-control" %>
+                  </div>
+                </div>
+                <div class="form-group row mb-0">
+                  <h2 class="title">Private Information</h2>
+                </div>
+                <div class="form-group row">
+                  <%= f.label :email, :class => "col-xs-2 col-form-label" %>
+                  <div class="col-xs-8">
+                    <%= f.email_field :email, :class => "form-control" %>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <%= f.label :phone_number, :class => "col-xs-2 col-form-label" %>
+                  <div class="col-xs-8">
+                    <%= f.text_field :phone_number, :class => "form-control" %>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <%= f.label :gender, :class => "col-xs-2 col-form-label" %>
+                  <div class="col-xs-4">
+                    <%= f.select :phone_number, 
+                        options_for_select(["Male", "Female"], @user.gender), {}, 
+                        :class => "form-control" %>
+                  </div>
+                </div>
 
-<%= render 'form', user: @user %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+                <div class="form-group row flex-col">
+                  <%= f.submit "Save Changes", :class => "btn btn-save offset-md-3" %>
+                  <span class="message error offset-md-3" id="edit-message"></span>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="change-password" role="tabpanel">
+          <div>
+            <%= form_for @user, :html => {:class => "form change-password mt-6", :'data-name' => "change-password"} do  |f| %>
+              <div class="form-group row">
+                <%= f.label :old_passord, :class => "col-xs-3 col-form-label" %>
+                <div class="col-xs-5">
+                  <%= password_field_tag 'user[old_password]', nil, :class => "form-control", :id => "old-password" %>
+                </div>
+              </div>
+              <div class="form-group row">
+                <%= f.label :new_password, :class => "col-xs-3 col-form-label" %>
+                <div class="col-xs-5">
+                  <%= password_field_tag 'user[new_password]', nil, :class => "form-control", :id => 'password' %>
+                </div>
+              </div>
+              <div class="form-group row">
+                <%= f.label :confirm_password, :class => "col-xs-3 col-form-label" %>
+                <div class="col-xs-5">
+                  <%= password_field_tag 'user[confirm_password]', nil, :class => "form-control", :id => 'confirm-password' %>
+                </div>
+              </div>
+              
+              <div class="form-group row flex-col">
+                <%= f.submit "Change Password", :class => "btn btn-save offset-md-4" %>
+                <span class="message  success offset-md-4" id="password-message"></span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

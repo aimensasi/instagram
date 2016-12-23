@@ -28,14 +28,20 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 #bootsrtap 4
 gem 'bootstrap', '~> 4.0.0.alpha5'
+#remotipart for 
+gem 'remotipart', '~> 1.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# carrier_wave
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+gem "mini_magick"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'faker', '~> 1.6', '>= 1.6.6'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
   gem 'guard-rspec'
   gem 'annotate'
   gem 'shoulda-matchers'
