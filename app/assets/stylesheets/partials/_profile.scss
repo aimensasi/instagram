@@ -1,0 +1,128 @@
+// $btn-default: #3897f0;
+// $bg-color: #fafafa;
+// $black: #222;
+// $white: #fff;
+// $dark-gray: #999;
+// $light-gray: #dbdbdb;
+// $error-color: #ff5a5f;
+// $success-color: rgba(32, 169, 152, 0.77);
+
+.profile-view{
+	width: 975px;
+	.info-row{
+		margin-top: 60px;
+		.profile-pic{
+			margin-left: 90px;
+		}
+		.offset-1{
+			margin-left: 11.333333%;	
+		}
+		.profile-info{
+			margin-top: 20px;
+			.username{
+				font-size: 35px;
+				font-weight: 200;
+				text-transform: lowercase;
+			}
+			.link-to-edit{
+				border: 1px solid $dark-gray;
+				color: $dark-gray;
+			}
+			.link-to-unfollow{
+				border: 1px solid $error-color;
+				color: $error-color;
+			}
+			.link-to-follow{
+				border: 1px solid $success-color;
+				color: $success-color;
+			}
+			.link-to-unfollow,
+			.link-to-follow,
+			.link-to-edit{
+				height: 31px;
+				padding: 5px 16px;
+				border-radius: 3px;
+				margin-left: 20px;
+			}
+			.more{	
+				margin-left: 15px;
+				margin-top: 8px;
+				cursor: pointer;
+			}
+			.dropdown-menu{
+				top: 21px;
+			  left: 18px;
+			}
+			.row-1, 
+			.row-2,
+			.row-3{
+				margin-bottom: 1rem;
+			}
+			.row-2{
+				.posts,
+				.followers,
+				.following {
+					color: $black;
+					margin-right: 20px;
+					font-size: 16px;
+					font-weight: 200;
+					strong{
+						font-weight: 500;					
+					}
+				}	
+			}
+		}
+	}
+
+}
+
+
+.profile-view{
+	.img-row{
+		margin-top: 3rem;
+		margin-bottom: 2rem;
+		.img-box{
+			position: relative;
+			.img-small{
+				width: 293px;
+				height: 293px;
+			}
+			.img-cover{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 293px;
+				height: 293px;
+				background: rgba(0, 0, 0, .7);	
+				opacity: 0;
+				cursor: pointer;
+				transition: opacity .6s;
+				.react{
+					margin:auto;
+					.l-number, 
+					.c-number{
+						font-size: 18px;
+						color: $white;
+						margin-top: 5px;
+					}
+					.c-number{
+						margin-right: 7px;
+						margin-left: 8px;
+					}
+					.l-number{
+						margin-right: 17px;
+						margin-left: 5px;
+					}
+				}
+			}
+
+		}
+		.img-box:hover .img-cover{
+			opacity: 1;
+		}
+	}	
+}
+
+
+
+

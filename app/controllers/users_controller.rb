@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(create_params)
     # byebug
     if request.xhr?
       
@@ -63,7 +63,7 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update(create_params)
         format.js { flash.notice = "Profile Saved" }
       else
         format.js { flash.alert = @user.errors.full_messages.first }
@@ -83,7 +83,15 @@ class UsersController < ApplicationController
       @user = User.find_by_id(params[:id])
     end
 
-    def user_params
-      params.fetch(:user, {}).permit(:name, :username, :email, :password, :website, :bio, :gender, :phone_number)
+    def create_params
+      params.fetch(:user, {}).permit(:name, :username, :email, :password)
+    end
+
+    def edit_params
+      params.fetch(:user, {}).permit(:name, :username, :email, :website, :bio, :gender, :phone_number)
+    end
+
+    def change_password_params
+      params.fetch(:user, {}).permit(:old_password, :new_password)
     end
 end

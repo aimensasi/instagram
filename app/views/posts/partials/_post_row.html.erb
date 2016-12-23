@@ -1,0 +1,43 @@
+<article class="post-row content-center">
+  <headre class="post-header flex-row">
+    <%= image_tag(post.user_pic ? post.user_pic : "post_img_default.png", :size => "28x28", 
+                                                :class => "profile-img rounded-circle") %>
+
+    <%= link_to(post.username, user_path(post.user), :class => "post-username") %>
+    <span class="post-time"><%= time_ago_in_words(post.created_at) %></span>
+  </headre>
+  <div class="post-body">
+    <%= image_tag(post.image ? post.image : "avatar_default.png", :size => "600x600", 
+                                          :class => "post-img") %>
+  </div>
+  <footer class="post-footer">
+    <div class="post-loves">
+      <h2 class="loves">25k likes</h2>
+    </div>
+    <div class="username flex-row">
+      <p class="post-caption">
+        <%= link_to(post.user.username, user_path(post.user.username) , :class => "link-to") %>
+        <%= post.caption %>
+      </p>  
+    </div>
+    <div class="post-comments flex-col">
+      <h6 class="view-more">View All 200 Comment</h6>
+      <div class="comments-list">
+        <div class="user-comment">
+          <p class="comment">
+            <a href="" class="link-to">James</a>
+            @ash_r_moore might have to watch an eppy or two for good 
+            might have to watch an eppy or two for good might have to
+            might have to watch an eppy or two for good might have to
+            might have to watch an eppy or two for good might have to
+            might have to watch an eppy or two for good might have to
+          </p>  
+        </div>
+      </div>
+      <div class="react flex-row">
+        <div class="icon l-e-g" id="new-love"></div>
+        <input type="text" class="comment" id="new-comment" placeholder="Add a comment...">
+      </div>
+    </div>
+  </footer>
+</article>

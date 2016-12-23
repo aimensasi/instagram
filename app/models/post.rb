@@ -15,4 +15,20 @@ class Post < ApplicationRecord
 
 	validates :media, :presence => true
 	validates :user, :presence => true
+
+	mount_uploader :media, AvatarUploader
+
+
+  def image
+	 	return nil unless  media.file.present?
+	 	media.cover.url
+  end
+
+  def user_pic
+  	user.pic
+  end
+
+  def username
+  	user.username
+  end
 end

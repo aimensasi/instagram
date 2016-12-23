@@ -1,0 +1,126 @@
+.navbar{
+	background: #fff;
+	height: 77px;
+	padding-top: 20px;
+	.navbar-nav{
+		width: 910px;
+		.nav-link,
+		.navbar-brand {
+		  color: rgba(0,0,0,.5);
+		  margin-top: 10px;
+		  background: image_url('logos.png');
+		  height: 25px;
+		  width: 25px;
+		  margin-left: 20px;
+		}
+		.navbar-brand{
+			background-position: -177px 0;
+			height: 35px;
+			width: 176px;
+		}
+	}
+}
+
+
+
+.navbar{
+	.navbar-nav{
+		.search-bar{
+			position: relative;
+			border: 1px solid #d7d7d7;
+			width: 215px;
+			height: 32px;
+			margin-right: auto;
+			margin-left: auto;
+			margin-top: 9px;
+			padding-left: 10px;
+			input{
+				border: none;
+				height: 20px;
+				width: 180px;
+				margin-left: 8px;
+				margin-top: 5px;
+				font-size: 12px;
+				color: #999;
+			}
+			.s-icon{
+				background-position: -259px -113px !important;
+				width: 14.3px;
+				height: 15px;
+				margin-top: 7px;
+			}
+		}
+	}
+}
+
+.navbar{
+	.navbar-nav{
+		.search-result{
+			position: absolute;
+			min-height: 67px;
+			width: 241px;
+			background: #fff;
+			padding: 0;
+			top: 56px;
+			left: -14px;
+			border: solid 1px #dbdbdb;
+			border-radius: 3px;
+			box-shadow: 0 0 5px rgba(0,0,0,.13);
+			opacity: 0;
+			transition: opacity .5s;
+			&::after{
+				content: ' ';
+				position: absolute;
+				border-color: transparent transparent #fff;
+			  border-style: solid;
+			  border-width: 0 10px 10px;
+			  height: 0;
+			  left: 110px;
+			  top: -10px;
+			  width: 0;
+			  z-index: 3;
+			}
+			.search-row {
+				height: 67px;
+			  padding: 12px 18px;
+			  border-bottom: 1px solid #dbdbdb;
+			  background-color: transparent;
+			  transition: background-color .5s;
+			  &:hover{
+					background-color: #fafafa;
+					cursor: pointer;
+				}
+				.username{
+					line-height: 22px;
+					margin-bottom: 2px;
+					max-width: 140px;
+					overflow: hidden;
+					font-weight: 500;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					font-size: 16px;
+				}
+				img.user-pic {
+				  margin-top: 5px;
+				}
+				.user-info {
+				  margin-left: 15px;
+				  margin-top: 2px;
+				}
+				.name{
+					line-height: 20px;
+				  margin-top: -2px;
+				  max-width: 120px;
+				  overflow: hidden;
+				  font-weight: 100;
+				  text-overflow: ellipsis;
+				  white-space: nowrap;
+				  font-size: 13px;
+				  color: #999;
+				}
+			}
+		}
+	}
+}
+
+

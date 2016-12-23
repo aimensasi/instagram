@@ -16,8 +16,8 @@
   </head>
   <body>
 
+    <%= render :partial => "layouts/partials/header" %>
     
     <%= yield %>
-    <%= link_to("Log_out", log_out_path, :method => "delete") %>
   </body>
 </html>

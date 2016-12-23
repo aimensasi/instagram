@@ -1,0 +1,87 @@
+.post-row{
+	background: #fff;
+	margin-top: 60px;
+	width: 600px;
+	.post-header{
+		height: 64px;
+		width: 100%;
+		padding: 14px 20px;
+		.post-username {
+		  color: #222;
+		  margin-right: auto;
+		  margin-top: 3px;
+		  margin-left: 10px;
+		}
+		.profile-img{
+			width: 28px;
+			height: 28px;
+		}
+		.post-time {
+		  font-size: 16px;
+		  font-weight: 400;
+		  margin-top: 5px;
+		}
+	}
+	.post-body{
+		.post-img{
+			width: 600px;
+			height: 600px;
+		}		
+	}
+	.post-footer{
+		padding: 0 24px;
+		.post-loves {
+		  padding: 14px 0px;
+		  .loves {
+		    font-size: 18px;
+		    margin-top: 10px;
+		  }
+		}
+		.username{
+		  font-size: 15px;
+		  color: #222;
+		}
+		.link-to {
+		  color: #222;
+		  font-weight: 500;
+		  margin-right: 6px;
+		}
+	}
+
+}
+
+.post-row{
+	.post-comments{
+		.view-more {
+		  font-size: 14px;
+		  color: #999;
+		}
+		.comments-list {
+		  margin: 15px 0;
+		  .user-comment{
+		  	display: flex;
+		  	font-size: 14px;
+		  	margin-bottom: 5px;
+		  	.link-to{
+		  		color: #222;
+		  		margin-right: 10px;
+		  		font-weight: 600;
+		  		letter-spacing: 0.6px;
+		  		text-decoration: none;
+		  	}
+		  	.comment{
+					font-weight: 100;
+					margin-bottom: 0;	  		
+		  	}
+		  }
+		}
+		.react{
+			border-top: 1px solid #efefef;
+			padding: 20px 0;
+			.comment{
+				border: none;
+				margin-left: 18px;
+			}
+		}		
+	}	
+}

@@ -1,0 +1,67 @@
+  <div class="container profile-view">
+    <div class="row info-row">
+      <!-- Info Row -->
+      <div class="col-md-3">
+        <%= image_tag(@user.profile_pic ? @user.profile_pic : "avatar_default.png", 
+                      :size => "152x152", :class => "profile-pic rounded-circle") %>
+      </div>
+      <div class="col-md-6 offset-1">
+        <div class="profile-info flex-col">
+          <div class="row row-1 flex-row">
+            <h4 class="username">AimenSasi</h4>
+            <% if is_owner @user %>
+              <%= link_to("Edit Profile", edit_user_path(@user), :class => "btn link-to-edit") %>
+              <div class="dropdown">
+                <a class="" href="#" id="menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="icon more"></div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="menu">
+                  <%= link_to("Log out", log_out_path, :class => "dropdown-item") %>
+                </div>
+              </div>
+            <% else %>
+              <%= link_to("Follow", edit_user_path(@user), :class => "btn link-to-follow") %>
+              <%= link_to("Unfollow", edit_user_path(@user), :class => "btn link-to-unfollow") %>
+            <% end %>
+          </div>
+          <div class="row row-2 flex">
+            <a href="#" class="posts disabled"><strong><%= @user.posts.count %></strong> Posts</a>
+            <%= link_to("230 Followers", "#" , :class => "followers") %>
+            <%= link_to("20 Followers", "#" , :class => "following") %>
+          </div>
+          <div class="row row-3">
+            <p class="bio">
+              <%= @user.bio %>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Info Row -->
+    </div>
+    <div class="row img-row">
+      <% @user.posts.each do |post| %>
+        <div class="col-md-4 mb-2">
+          <div class="img-box">
+            <%= image_tag(post.image ? post.image : "post_img_default.png", 
+                          :size => "293x293", :class => "img-small") %>
+            <div class="img-cover flex-row">
+              <div class="react flex-row">
+                <!-- Post Loves -->
+                <div class="wrap flex-row">
+                  <div class="icon l-f"></div>
+                  <h3 class="l-number">25</h3>  
+                </div>
+                <!-- Post Comments -->
+                <div class="wrap flex-row">
+                  <div class="icon c-f"></div>
+                  <h3 class="c-number">30</h3>  
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

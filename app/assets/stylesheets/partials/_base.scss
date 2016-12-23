@@ -10,16 +10,16 @@ body{
 }
 
 ::-webkit-input-placeholder { /* Chrome */
-  font-size: 15px;
+  font-size: 12px;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  font-size: 15px;
+  font-size: 12px;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  font-size: 15px;
+  font-size: 12px;
 }
 :-moz-placeholder { /* Firefox 4 - 18 */
-  font-size: 15px;
+  font-size: 12px;
 }
 // Error Form 
 .in_err::-webkit-input-placeholder { /* Chrome */
@@ -70,6 +70,7 @@ body{
 	background: image-url("logos.png") no-repeat;
 	height: 25px;
 	width: 22px;
+	cursor: pointer;
 }
 .l-f{
 	background-position: -49px -254px !important;
@@ -101,6 +102,14 @@ body{
 	height: 17px !important;
 	width: 34px !important;
 }
+.discover{
+	background-position: 0 -279px !important;
+}
+.user{
+	background-position: -481px -230px !important;
+}
+
+
 
 .mb-0{
 	margin-bottom: 0 !important;
@@ -133,4 +142,10 @@ body{
 }
 .success{
 	color: $success-color;
+}
+
+.disabled{
+	pointer-events: none;
+  cursor: default;
+  text-decoration: none;
 }

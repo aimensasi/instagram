@@ -1,52 +1,14 @@
 <div class="row posts">
   <div class="container flex-col">
-    <article class="post-row content-center">
-      <headre class="post-header flex-row">
-        <img src="images/post-img.jpg" width="28" height="28" alt="" class="profile-img rounded-circle">
-        <a href="#" class="post-username">
-          Entourage
-        </a>
-        <span class="post-time">00:19s</span>
-      </headre>
-      <div class="post-body">
-        <img src="images/post-img.jpg" width="600" height="600" alt="" class="post-img">
+    <% if @posts.empty? %>
+      <div class="empty-list">
+        <h2 class="title">No Result</h2>
       </div>
-      <footer class="post-footer">
-        <div class="post-loves">
-          <h2 class="loves">25k likes</h2>
-        </div>
-        <div class="username flex-row">
-          <a href="" class="link-to">Entourage</a>
-          <p class="post-caption">Davies Demise</p>  
-        </div>
-        <div class="post-comments flex-col">
-          <h6 class="view-more">View All 200 Comment</h6>
-          <div class="comments-list">
-            <div class="user-comment">
-              <a href="" class="link-to">James</a>
-              <p class="post-caption">@ash_r_moore might have to watch an eppy or two for good </p>  
-            </div>
-            <div class="user-comment">
-              <a href="" class="link-to">James</a>
-              <p class="post-caption">
-              @ash_r_moore might have to watch an eppy or two for good 
-              @ash_r_moore might have to watch an eppy or two for good 
-              @ash_r_moore might have to watch an eppy or two for good 
-              @ash_r_moore might have to watch an eppy or two for good 
-              @ash_r_moore might have to watch an eppy or two for good 
-              </p>  
-            </div>
-            <div class="user-comment">
-              <a href="" class="link-to">James</a>
-              <p class="post-caption">@ash_r_moore might have to watch an eppy or two for good </p>  
-            </div>
-          </div>
-          <div class="react flex-row">
-            <div class="love" id="new-love"></div>
-            <input type="text" class="comment" id="new-comment" placeholder="Add a comment...">
-          </div>
-        </div>
-      </footer>
-    </article>
+    <% else %>
+      <% @posts.each do |post| %>
+        <%= render :partial => "posts/partials/post_row", :locals => {:post => post}  %>
+      <% end %>
+    <% end %>
+    
   </div>
 </div>
