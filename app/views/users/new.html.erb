@@ -1,5 +1,34 @@
-<h1>New User</h1>
+<div class="signup-wrapper active">
+  <div class="form-signup flex-col">
+    <div class="insta-logo icon"></div>
+    <h2 class="title">Sign up to see photos from your friends</h2>
+    <%= link_to "#" , :class => "btn btn-primary btn-fb flex-row" do  %>
+      <div class="icon fb"></div>
+      <span>Log in with Facebook</span> 
+    <% end %>
 
-<%= render 'form', user: @user %>
+    <div class="divider">Or</div>
+    <%= form_for @user, :html => {:class => "form", :'data-name' => "sign-up"} do  |f| %>
+      <div class="form-group">
+        <%= f.email_field :email, :class => "form-control", :placeholder => "Email Address" %> 
+      </div>
+      <div class="form-group">
+        <%= f.text_field :name, :class => "form-control", :placeholder => "Full Name" %> 
+      </div>
+      <div class="form-group">
+        <%= f.text_field :username, :class => "form-control", :placeholder => "Username" %> 
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password, :class => "form-control", :placeholder => "Password" %> 
+      </div>
+      
+      <%= f.submit "Sign Up", :class => "btn btn-fb" %> 
+      <div class="row message error"></div>
+    <% end %>
+  </div>
 
-<%= link_to 'Back', users_path %>
+  <div class="extra-wrapper" id="log-in">
+    Have an account? <a href="#" class="link-to" data-parent="sign-in">Log in</a>
+  </div>  
+</div>
+

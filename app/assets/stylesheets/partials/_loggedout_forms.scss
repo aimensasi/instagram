@@ -1,0 +1,151 @@
+.phone-img{
+	background: image-url("iphone.jpg") no-repeat;
+	height: 615px;
+	margin-top: 60px;
+}
+
+.form-wrapper{
+	.active{
+		display: inherit !important;
+	}
+	.form-login,
+	.form-signup{
+		background: $white;
+	  border: 1px solid $bg-color;
+	  padding: 30px 35px;
+	  width: 350px;
+	  margin-top: 40px;
+	  .message{
+	  	font-size: 14px;
+	  	text-align: center;
+	  	margin: 16px auto;
+	  }
+	  .btn-fb.flex-row{
+	  	padding: 4px 10px;
+	  }	
+	  .btn-fb{
+	  	width: 100%;
+	  	margin-top: 5px;
+	  	font-weight: 100;
+	  	font-size: 14px;
+	  	background: $btn-default;
+	  	border: 1px solid $btn-default;
+	  	color: $white;
+	  	.icon.fb{
+				background-position: -185px -254px;
+				margin-right: 9px;
+		    margin-top: 2px;
+		    margin-left: auto;
+	  	}
+	  	span{
+	  		margin-right: auto;
+	  		margin-top: 6px;
+	  	}
+	  }
+	  .insta-logo{
+	  	width: 181px;
+	  	height: 56px;
+	  	background-position: 4px 3px;
+	  	margin-left: auto;
+	  	margin-right: auto;
+	  	margin-top: 20px;
+	  	margin-bottom: 14px;
+	  }
+	  .form-control{
+	  	background: 0 0;
+	  	border: 1px solid $light-gray;
+	  	border-radius: 3px;
+	  	box-sizing: border-box;
+	  	color: #262626;
+	  	font-size: 14px;
+	  	padding: 9px 8px 7px;
+	  	-webkit-appearance: none;
+	  	width: 100%
+	  }
+	  .btn-submit{
+	  	margin-top: 15px;
+	  }
+	}
+	.form-signup{
+		max-height: 547px;
+    max-height: 600px;
+		h2.title {
+		  font-size: 17px;
+		  color: $dark-gray;
+		  text-align: center;
+		  line-height: 20px;
+		  margin: 0 30px 10px;
+		}
+		.divider{
+			position: relative;
+			width: 100%;
+			text-align: center;
+			margin-top: 15px;
+			margin-bottom: 15px;
+			color: $dark-gray;
+			&::after, 
+			&::before{
+				content: '';
+				position: absolute;
+				background: $dark-gray;
+				height: 1.8px;
+				top: 12px;
+				width: 110px;
+				font-weight: 100;
+			}
+			&::after{
+				right: 1px;
+			}
+			&::before{
+				left: 1px;
+			}
+		}
+	}
+	.form-login{
+		min-height: 252px;
+		max-height: 300px;
+		padding: 5px 35px;
+		margin-top: 160px;
+	}
+}
+
+.login-wrapper{
+	display: none;
+}
+.signup-wrapper{
+	display: none;
+}
+
+.extra-wrapper{
+	height: 66px;
+  width: 350px;
+	background: $white;
+	border: 1px solid $bg-color;
+  padding: 24px 20px;
+  margin-top: 25px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 15px;
+  a{
+  	color: $btn-default;
+  	text-decoration: none;
+  }
+}
+.get-app{
+	width: 350px;
+	.title{
+		text-align: center;
+		margin-bottom: 10px;
+		font-weight: 300;
+	}
+	.apple{
+		margin-left: auto;
+		margin-right: 5px;
+	}
+	.google{
+		margin-right: auto;
+		margin-left: 5px;
+	}
+}
+
+

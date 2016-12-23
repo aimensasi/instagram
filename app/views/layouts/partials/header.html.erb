@@ -1,0 +1,27 @@
+<div class="row">
+  <nav class="navbar navbar-light bg-white">
+    <div class="nav navbar-nav container flex-row">
+      <%= link_to("", root_path, :class => "navbar-brand") %>
+      <div class="search-bar">
+        <div class="search-field">
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <input type="text" placeholder="Search">  
+        </div>
+        <div class="search-result">
+          <a href="#" class="link-to">
+            <div class="search-row flex-row">
+              <img src="images/user_2.jpg" width="32" height="32" alt="" class="user-pic rounded-circle">
+              <div class="user-info">
+                <h5 class="username">James Cameron Heliry Henry</h5>
+                <h6 class="name">Aimen Sasi</h6>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <%= link_to("", root_path, :class => "nav-item nav-link discover") %>
+      <%= link_to("", "#", :class => "nav-item nav-link love") %>
+      <%= link_to("", user_path(current_user), :class => "nav-item nav-link user") %>
+    </div>
+  </nav>
+</div>

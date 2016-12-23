@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 #bootsrtap 4
 gem 'bootstrap', '~> 4.0.0.alpha5'
+#remotipart for 
+gem 'remotipart', '~> 1.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -36,6 +38,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'faker', '~> 1.6', '>= 1.6.6'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
   gem 'guard-rspec'
   gem 'annotate'
   gem 'shoulda-matchers'

@@ -19,8 +19,12 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   
-	let(:valid_attributes) { {:email => "adam@gmail.com", :password => "12234567", :name => "adam", :username => "adamjames", :website => "https://www.google.com"} }
-	let(:invalid_attributes) { {:email => "adamgmail.com", :password => "1567", :name => "adam", :username => "adamjames", :website => "www.google.com"} }
+	let(:valid_attributes) { 
+		{:email => "adam@gmail.com", :password => "12234567", :name => "adam", :username => "adamjames", :website => "https://www.google.com"} 
+	}
+	let(:invalid_attributes) { 
+		{:email => "adamgmail.com", :password => "1567", :name => "adam", :username => "adamjames", :website => "www.google.com"} 
+	}
 	let(:user) { create(:user) }
 
 	before(:each) do 

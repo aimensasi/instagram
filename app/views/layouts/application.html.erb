@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Instagram</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Instagram</title>
+		<%= favicon_link_tag("favicon.png") %>
+		
+		<%= stylesheet_link_tag    'application', media: 'all'%>
+		<%= javascript_include_tag 'application'%>
+		<%= javascript_include_tag 'https://use.typekit.net/kkg7jey.js'%>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    
   </head>
-
   <body>
+
+    
     <%= yield %>
+    <%= link_to("Log_out", log_out_path, :method => "delete") %>
   </body>
 </html>

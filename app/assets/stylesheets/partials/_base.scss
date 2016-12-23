@@ -1,0 +1,136 @@
+*{
+	outline: 0 !important;
+}
+
+body{
+	color: #000;
+	font-size: 18px;
+	background: $bg-color;
+	font-family: 'proxima-nova', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+::-webkit-input-placeholder { /* Chrome */
+  font-size: 15px;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  font-size: 15px;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  font-size: 15px;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  font-size: 15px;
+}
+// Error Form 
+.in_err::-webkit-input-placeholder { /* Chrome */
+  color: $error-color;
+}
+.in_err:-ms-input-placeholder { /* IE 10+ */
+  color: $error-color;
+}
+.in_err::-moz-placeholder { /* Firefox 19+ */
+  color: $error-color;
+}
+.in_err:-moz-placeholder { /* Firefox 4 - 18 */
+  color: $error-color;
+}
+ 
+.link-to{
+	color: $black;
+	text-decoration: none;
+}
+
+.link-to:hover{
+	color: $black;
+	text-decoration: none;
+}
+
+.mb-6{
+	margin-bottom: 6rem !important;
+}
+.mt-6{
+	margin-top: 6rem !important;
+}
+
+.flex-col{
+	display: flex;
+	flex-direction: column;
+}
+
+.flex-row{
+	display: flex;
+	flex-direction: row;
+}
+.content-center{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.icon{
+	background: image-url("logos.png") no-repeat;
+	height: 25px;
+	width: 22px;
+}
+.l-f{
+	background-position: -49px -254px !important;
+}
+.l-e-g{
+	background-position: -182px -228px !important;
+}
+.l-r{
+	background-position: -156px -227px !important;
+	width: 23px !important;
+}
+.l-e-w{
+	background-position: -277px -178px !important;
+}
+.c-f{
+	background-position: -89px -252px !important;	
+}
+.b-l{
+	background-position: -177px 0 !important;
+}
+.d-i{
+	background-position: 0 -279px !important;
+}
+.u-i{
+	background-position: -481px -230px !important;
+}
+.more{	
+	background-position: -312px -50px !important;
+	height: 17px !important;
+	width: 34px !important;
+}
+
+.mb-0{
+	margin-bottom: 0 !important;
+}
+.mt-0{
+	margin-top: 0 !important;
+}
+.ml-0{
+	margin-left: 0 !important;
+}
+.mr-0{
+	margin-right: 0 !important;
+}
+
+.pb-0{
+	padding-bottom: 0 !important;
+}
+.pt-0{
+	padding-top: 0 !important;
+}
+.pl-0{
+	padding-left: 0 !important;
+}
+.pr-0{
+	padding-right: 0 !important;
+}
+
+.error{
+	color: $error-color;
+}
+.success{
+	color: $success-color;
+}
