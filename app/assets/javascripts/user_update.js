@@ -12,10 +12,8 @@ $(document).ready(function(){
 			sendAjax($form.attr('action'), $form.serialize());
 		}else if ($form.attr('data-name') == 'change-password') {
 			if (validateInputs()){
-				console.log('True' + validateInputs());
 				sendAjax($form.attr('action'), $form.serialize());	
 			}else{
-				console.log('False' + validateInputs());
 				return;
 			}
 		}
@@ -61,22 +59,44 @@ $(document).ready(function(){
 	}
 
 	function handleResponse(data){
-		console.log(data);
-		if (data.status != 200) {
-			if (data.type == 'edit-user') {
-				$('#edit-message').addClass('error').text(data.messages);
-			}else if (data.type == 'change-password') {
-				$('#password-message').addClass('error').text(data.messages);
-			}
-		}else{
+		var $editMessage = $('#edit-message');
+		var $passwordMessage = $('#password-message');
 
-			if (data.type == 'edit-user') {
-				console.log(data.type);
-				$('#edit-message').text(data.messages);
-			}else if (data.type == 'change-password') {
-				console.log(data.type);
-				$('#password-message').addClass('success').text(data.messages);
+		if (data.type == 'edit-user') {
+
+			if (data.status == 200) {
+				displayNotice($editMessage, 'success');
+				$editMessage.text(data.message);
+			}else{
+				displayNotice($editMessage, 'error');
+				$editMessage.text(data.message);
 			}
+
+		}else if (data.type == 'change-password') {
+
+			if (data.status == 200) {
+				displayNotice($passwordMessage, 'success');
+				$passwordMessage.text(data.message);
+			}else{
+				displayNotice($passwordMessage, 'error');
+				$passwordMessage.text(data.message);
+			}
+
+		}
+
+		// Enable Save Button and hide message after 3sec
+		$('.btn-save').prop('disabled', false);
+		setTimeout(function(){
+			$('.message').text('');
+		}, 3000);
+
+	}//handel ajax response
+
+	function displayNotice($e, type){
+		if (type == 'success') {
+			$e.removeClass('error').addClass('success');
+		}else{
+			$e.removeClass('success').addClass('error');
 		}
 	}
 

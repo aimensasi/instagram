@@ -67,7 +67,7 @@
                 <div class="form-group row">
                   <%= f.label :gender, :class => "col-xs-2 col-form-label" %>
                   <div class="col-xs-4">
-                    <%= f.select :phone_number, 
+                    <%= f.select :gender, 
                         options_for_select(["Male", "Female"], @user.gender), {}, 
                         :class => "form-control" %>
                   </div>
