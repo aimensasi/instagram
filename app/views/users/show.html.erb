@@ -42,7 +42,7 @@
       <% @user.posts.each do |post| %>
         <div class="col-md-4 mb-2">
           <div class="img-box">
-            <%= image_tag(post.image ? post.image : "post_img_default.png", 
+            <%= image_tag(post.thumbnail ? post.thumbnail : "post_img_default.png", 
                           :size => "293x293", :class => "img-small") %>
             <div class="img-cover flex-row">
               <div class="react flex-row">

@@ -21,6 +21,16 @@
                 <div class="img-cover" id="profile-uploader">
                   <div class="icon img-icon"></div>
                 </div>
+                <%= form_for(@user, :method => "PATCH", remote: true, 
+                    :html => {:id => "img-file", :'data-type' => :json}) do |f| %>
+
+                  <%= f.label :avatar, :class=> "btn btn-file img-cover" do %>
+                    <%= f.file_field :avatar, accept: 'image/png,image/jpg,image/jpeg', 
+                    :class => "inputfile", :id => 'user_avatar' %>
+                    <div class="icon img-icon"></div>
+                  <% end %>
+
+                <% end %>
               </div>
               <div class="col-md-3">
                 <h2 class="username"><%= @user.username %></h2>

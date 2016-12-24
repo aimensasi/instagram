@@ -61,16 +61,18 @@
 				}
 			}
 			.img-cover {
-		    width: 80px;
-		    height: 80px;
+		    width: 82px;
+		    height: 82px;
 		    position: absolute;
 		    z-index: 9999;
 		    background-color: #eee;
 		    border-radius: 50%;
-		    top: 0;
+		    top: -1px;
 		    opacity: 0;
+		    -webkit-transition: opacity .7s;
 		    transition: opacity .7s;
-		    cursor: pointer;	
+		    cursor: pointer;
+		    left: 14.4px;	
 			  .icon.img-icon {
 		      position: absolute;
 		      top: 26px;
@@ -79,6 +81,9 @@
 		      width: 29px;
 		      height: 28px;
 			  }
+			  .inputfile {
+				  display: none;
+				}
 			}
 			.edit-form{
 				margin-top: 3rem;

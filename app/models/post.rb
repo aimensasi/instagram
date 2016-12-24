@@ -16,12 +16,18 @@ class Post < ApplicationRecord
 	validates :media, :presence => true
 	validates :user, :presence => true
 
-	mount_uploader :media, AvatarUploader
+	mount_uploader :media, PostImg
 
+  scope :recent, -> { order(:created_at => :DESC) }
 
   def image
 	 	return nil unless  media.file.present?
 	 	media.cover.url
+  end
+
+  def thumbnail
+    return nil unless  media.file.present?
+    media.thumbnail.url
   end
 
   def user_pic

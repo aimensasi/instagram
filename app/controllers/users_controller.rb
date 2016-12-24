@@ -60,32 +60,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by_id(params[:id])
     if request.xhr?
       if update_params.present?
-
-        if @user.update(update_params)
-          render :json => {:status => 200, :type => "edit-user", :message => "Profile Saved"}
-        else
-          puts " Erorr:: #{@user.errors.full_messages}"
-          render :json => {:status => 400, :type => "edit-user", :message => "There was a problem saving your profile. Please try again soon."}
-        end
-
+        update_profile()
       elsif password_params.present?
-
-        if @user.authenticate(password_params[:old_password])
-          @user.password = password_params[:new_password]
-          if @user.save
-            render :json => {:status => 200, :type => "change-password", :message => "Password Changed Successfully"}
-          else
-            render :json => {:status => 400, :type => "change-password", :message => @user.errors.full_messages.first}  
-          end
-        else
-          render :json => {:status => 400, :type => "change-password", 
-                           :message => "Your old password was entered incorrectly. Please enter it again."}
-        end
-      end  
-
+        change_password()
+      elsif avatar_params.present?
+        change_avatar()
+      end
     end
   end
 
@@ -97,19 +79,56 @@ class UsersController < ApplicationController
   end
 
   private
-    def set_user
-      @user = User.find_by_id(params[:id])
-    end
+  def set_user
+    @user = User.find_by_id(params[:id])
+  end
 
-    def create_params
-      params.require(:user).permit(:name, :username, :email, :password)
-    end
+  def create_params
+    params.require(:user).permit(:name, :username, :email, :password)
+  end
 
-    def update_params
-      params.require(:user).permit(:name, :username, :email, :website, :bio, :gender, :phone_number)
-    end
+  def update_params
+    params.require(:user).permit(:name, :username, :email, :website, :bio, :gender, :phone_number)
+  end
 
-    def password_params
-      params.require(:user).permit(:old_password, :new_password, :confirm_password)
+  def password_params
+    params.require(:user).permit(:old_password, :new_password, :confirm_password)
+  end
+
+  def avatar_params
+    params.require(:user).permit(:avatar)
+  end
+
+  def update_profile
+    if @user.update(update_params)
+      render :json => {:status => 200, :type => "edit-user", :message => "Profile Saved"}
+    else
+      puts " Erorr:: #{@user.errors.full_messages}"
+      render :json => {:status => 400, :type => "edit-user", :message => "There was a problem saving your profile. Please try again soon."}
     end
+  end
+
+  def change_password
+    if @user.authenticate(password_params[:old_password])
+      @user.password = password_params[:new_password]
+      if @user.save
+        render :json => {:status => 200, :type => "change-password", :message => "Password Changed Successfully"}
+      else
+        render :json => {:status => 400, :type => "change-password", :message => @user.errors.full_messages.first}  
+      end
+    else
+      render :json => {:status => 400, :type => "change-password", 
+                       :message => "Your old password was entered incorrectly. Please enter it again."}
+    end
+  end
+
+  def change_avatar
+    if @user.update(avatar_params)
+      render :json => {:status => 200, :type => 'avatar-update'}
+    else
+      puts "Error:: #{@user.errors.full_messages}"
+      render :json => {:status => 400, :type => 'avatar-update'}
+    end
+  end
+
 end

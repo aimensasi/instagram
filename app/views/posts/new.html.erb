@@ -1,5 +1,22 @@
-<h1>New Post</h1>
-
-<%= render 'form', post: @post %>
-
-<%= link_to 'Back', posts_path %>
+<div class="new-post">
+  <article class="form content-center">
+    <%= form_for post, :remote => true, :html => {:id => "new-post"} do |f| %>
+      <div class="form-body flex-col">
+        <%= f.label :media, :class=> "btn-file flex-row" do %>
+          <%= f.file_field :media, accept: 'image/png,image/jpg,image/jpeg', 
+          :class => "inputfile", :id => 'post_media' %>
+          <span class="title">Upload File From Library...</span>
+          <div class="icon icon-add"></div>
+        <% end %>
+        <%= image_tag("post_img_default.png", :size => "600x600", :class => "post-media") %>
+      </div>
+      <footer class="form-footer">
+        <div class="post-caption flex-row">
+          <%= f.text_area :caption, :rows => "2", :class => "caption", 
+              :placeholder => "Say Somthing..." %>
+          <%= f.submit "Post", :class => "btn btn-post" %>   
+        </div>
+      </footer>
+    <% end %>
+  </article>  
+</div>

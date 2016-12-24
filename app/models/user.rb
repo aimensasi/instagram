@@ -28,7 +28,7 @@ class User < ApplicationRecord
 	validates_presence_of :name, :username, :email
 	validates :email, :uniqueness => true, :format => { with: EMAIL_REGEX, message: "Invalid Email"}
 	validates :password, :presence => true, :on => :create
-	validates :password, :length => {:minimum => 6, :maximum => 70 }
+	validates :password, :length => {:minimum => 6, :maximum => 70 }, :allow_blank => true
 	
 
 

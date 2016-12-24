@@ -1,13 +1,16 @@
 <div class="row posts">
   <div class="container flex-col">
+    <%= render :template => "posts/new", :locals => {:post => @post} %>
     <% if @posts.empty? %>
       <div class="empty-list">
         <h2 class="title">No Result</h2>
       </div>
     <% else %>
-      <% @posts.each do |post| %>
-        <%= render :partial => "posts/partials/post_row", :locals => {:post => post}  %>
-      <% end %>
+      <div  id="posts-list">
+        <% @posts.each do |post| %>
+          <%= render :partial => "posts/partials/post_row", :locals => {:post => post}  %>
+        <% end %>  
+      </div>
     <% end %>
     
   </div>
