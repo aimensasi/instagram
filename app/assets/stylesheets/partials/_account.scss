@@ -54,6 +54,32 @@
 		.edit-profile-col{
 			width: 500px;
 			margin-top: 30px;
+			.img-box{
+				position: relative;
+				&:hover .img-cover{
+					opacity: 1;
+				}
+			}
+			.img-cover {
+		    width: 80px;
+		    height: 80px;
+		    position: absolute;
+		    z-index: 9999;
+		    background-color: #eee;
+		    border-radius: 50%;
+		    top: 0;
+		    opacity: 0;
+		    transition: opacity .7s;
+		    cursor: pointer;	
+			  .icon.img-icon {
+		      position: absolute;
+		      top: 26px;
+		      left: 25.7px;
+		      background-position: -279px -87px;
+		      width: 29px;
+		      height: 28px;
+			  }
+			}
 			.edit-form{
 				margin-top: 3rem;
 				input.form-control,

@@ -15,9 +15,12 @@
         <div class="tab-pane active" id="edit-profile" role="tabpanel">
           <div class="container edit-profile-col">
             <div class="row img-row">
-              <div class="col-md-3">
+              <div class="col-md-3 img-box">
                 <%= image_tag(@user.profile_pic ? @user.profile_pic : "avatar_default.png", 
                               :size => "80x80", :class => "profile-pic rounded-circle") %>
+                <div class="img-cover" id="profile-uploader">
+                  <div class="icon img-icon"></div>
+                </div>
               </div>
               <div class="col-md-3">
                 <h2 class="username"><%= @user.username %></h2>
