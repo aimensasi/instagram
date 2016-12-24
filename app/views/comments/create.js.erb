@@ -1,0 +1,3 @@
+$('.comments-list[data-parent="<%= @comment.post.id %>"]')
+.prepend("<%= j render(:partial => 'comments/partials/comment_row', 
+											 :locals => {:comment => @comment })%>");

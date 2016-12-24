@@ -7,19 +7,9 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def show
-  end
-
-  def new
-    @post = Post.new
-  end
-
-  def edit
-  end
-
   def create
-    @post = Post.new(post_params)
-    @post.user = current_user
+    @post = current_user.posts.new(post_params)
+
     respond_to do |format|
       if @post.save
         format.js
@@ -29,16 +19,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def update
-  end
-
-  def destroy
-    @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

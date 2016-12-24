@@ -22,21 +22,17 @@
     </div>
     <div class="post-comments flex-col">
       <h6 class="view-more">View All 200 Comment</h6>
-      <div class="comments-list">
-        <div class="user-comment">
-          <p class="comment">
-            <a href="" class="link-to">James</a>
-            @ash_r_moore might have to watch an eppy or two for good 
-            might have to watch an eppy or two for good might have to
-            might have to watch an eppy or two for good might have to
-            might have to watch an eppy or two for good might have to
-            might have to watch an eppy or two for good might have to
-          </p>  
-        </div>
+      <div class="comments-list" data-parent="<%= post.id %>">
+        <% post.comments.each do |comment| %>
+          <%= render :partial => "comments/partials/comment_row", :locals => {:comment => comment} %>
+        <% end %>
       </div>
       <div class="react flex-row">
         <div class="icon l-e-g" id="new-love"></div>
-        <input type="text" class="comment" id="new-comment" placeholder="Add a comment...">
+        <%= form_for [post, Comment.new], :html => {:class => 'new-comment'} do |f| %>
+          <!-- <input type="text" class="comment" id="new-comment" placeholder="Add a comment..."> -->
+          <%= f.text_field :text, :class => "comment", :placeholder => "Add a comment... ", :autocomplete => 'off' %>
+        <% end %>
       </div>
     </div>
   </footer>
