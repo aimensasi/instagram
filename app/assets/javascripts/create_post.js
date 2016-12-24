@@ -5,11 +5,12 @@ $(document).ready(function(){
 	var $fileRow = $('.btn-file');
 	var $formFooter = $('.form-footer');
 	var $postImg = $('.post-media');
-
+	var $postsList = $('#posts-list');
 
 	$postForm.on('submit', function(e){
-		e.preventDefault();
-		console.log('submited');
+		// e.preventDefault();
+		$postImg.css('display', 'none');
+		$formFooter.css('display', 'none');
 	});
 
 	$mediaFile.on('change', function(){
@@ -23,7 +24,7 @@ $(document).ready(function(){
 
 	    reader.onload = function (e) {
 	      $postImg.attr('src', e.target.result).css('display', 'initial');
-	      // $fileRow.hide();
+	      $formFooter.show();
 	    }
 	    reader.readAsDataURL(input.files[0]);
 	  }

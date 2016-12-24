@@ -18,6 +18,7 @@ class Post < ApplicationRecord
 
 	mount_uploader :media, PostImg
 
+  scope :recent, -> { order(:created_at => :DESC) }
 
   def image
 	 	return nil unless  media.file.present?

@@ -1,6 +1,6 @@
 <div class="new-post">
   <article class="form content-center">
-    <%= form_for post, :remote => true, :html => {:id => "new-post", :"data-type" => :json} do |f| %>
+    <%= form_for post, :remote => true, :html => {:id => "new-post"} do |f| %>
       <div class="form-body flex-col">
         <%= f.label :media, :class=> "btn-file flex-row" do %>
           <%= f.file_field :media, accept: 'image/png,image/jpg,image/jpeg', 

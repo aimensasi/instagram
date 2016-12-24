@@ -16,7 +16,7 @@
     </div>
     <div class="username flex-row">
       <p class="post-caption">
-        <%= link_to(post.user.username, user_path(post.user.username) , :class => "link-to") %>
+        <%= link_to(post.user.username, user_path(post.user) , :class => "link-to") %>
         <%= post.caption %>
       </p>  
     </div>

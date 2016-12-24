@@ -6,9 +6,11 @@
         <h2 class="title">No Result</h2>
       </div>
     <% else %>
-      <% @posts.each do |post| %>
-        <%= render :partial => "posts/partials/post_row", :locals => {:post => post}  %>
-      <% end %>
+      <div  id="posts-list">
+        <% @posts.each do |post| %>
+          <%= render :partial => "posts/partials/post_row", :locals => {:post => post}  %>
+        <% end %>  
+      </div>
     <% end %>
     
   </div>
