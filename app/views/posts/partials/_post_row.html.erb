@@ -1,4 +1,4 @@
-<article class="post-row content-center">
+<article class="post-row content-center" data-parent="<%= post.id %>">
   <headre class="post-header flex-row">
     <%= image_tag(post.user_pic ? post.user_pic : "post_img_default.png", :size => "28x28", 
                                                 :class => "profile-img rounded-circle") %>
@@ -21,7 +21,7 @@
       </p>  
     </div>
     <div class="post-comments flex-col">
-      <h6 class="view-more">View All 200 Comment</h6>
+      <h6 class="view-more"><%= pluralize(post.comments.count, 'Comment') %></h6>
       <div class="comments-list" data-parent="<%= post.id %>">
         <% post.comments.each do |comment| %>
           <%= render :partial => "comments/partials/comment_row", :locals => {:comment => comment} %>
