@@ -8,11 +8,12 @@
   </headre>
   <div class="post-body">
     <%= image_tag(post.image ? post.image : "avatar_default.png", :size => "600x600", 
-                                          :class => "post-img") %>
+                                          :class => "post-img", :'data-parent' => post.id ) %>
+    <div class="icon l-b-w"></div>                                          
   </div>
   <footer class="post-footer">
     <div class="post-loves">
-      <h2 class="loves">25k likes</h2>
+      <h2 class="loves"><%= pluralize(number_to_human(post.likes.count), 'Like') %></h2>
     </div>
     <div class="username flex-row">
       <p class="post-caption">
@@ -41,9 +42,14 @@
         <% end %>
       </div>
       <div class="react flex-row">
-        <div class="icon l-e-g" id="new-love"></div>
+        <% if like = post.user_like(current_user) %>
+          <div class="icon l-r react-plus l-<%= post.id %>" data-action="posts/<%= post.id %>/likes/<%= like.id %>">
+          </div>
+        <% else %>
+          <div class="icon l-e-g react-plus l-<%= post.id %>" data-action="posts/<%= post.id %>/likes"></div>
+        <% end %>
+        
         <%= form_for [post, Comment.new], :html => {:class => 'new-comment'} do |f| %>
-          <!-- <input type="text" class="comment" id="new-comment" placeholder="Add a comment..."> -->
           <%= f.text_field :text, :class => "comment", :placeholder => "Add a comment... ", :autocomplete => 'off' %>
         <% end %>
       </div>

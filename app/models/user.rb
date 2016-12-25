@@ -25,6 +25,7 @@ class User < ApplicationRecord
 
 	has_many :posts, :dependent => :destroy
 	has_many :comments, :dependent => :destroy
+	has_many :likes, :dependent => :destroy
 
 	validates_presence_of :name, :username, :email
 	validates :email, :uniqueness => true, :format => { with: EMAIL_REGEX, message: "Invalid Email"}

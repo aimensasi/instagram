@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :require_login
   
   def index
-    @posts = Post.recent
+    @posts = Post.recent.limit(10)
     @post = Post.new
   end
 

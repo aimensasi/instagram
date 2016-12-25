@@ -5,11 +5,8 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
     @comment.post = Post.find_by_id(params[:post_id])
     
-    if @comment.save
-    else
-      byebug
-    end
-
+    @comment.save
+    
     respond_to do |format|
       format.js 
     end
