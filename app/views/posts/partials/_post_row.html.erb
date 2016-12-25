@@ -13,7 +13,7 @@
   </div>
   <footer class="post-footer">
     <div class="post-loves">
-      <h2 class="loves">25k likes</h2>
+      <h2 class="loves"><%= pluralize(number_to_human(post.likes.count), 'Like') %></h2>
     </div>
     <div class="username flex-row">
       <p class="post-caption">
