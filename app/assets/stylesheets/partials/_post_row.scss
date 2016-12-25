@@ -28,10 +28,22 @@
 		}
 	}
 	.post-body{
+		position: relative;
 		.post-img{
 			width: 600px;
 			height: 600px;
-		}		
+		}
+		.l-b-w{
+			position: absolute;
+			background-position: 1px -55px;
+			width: 95px;
+			height: 78px;
+			top: 40%;
+			left: 42%;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity .6s ease;
+		}
 	}
 	.post-footer{
 		padding: 0 24px;

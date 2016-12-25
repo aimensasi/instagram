@@ -8,7 +8,8 @@
   </headre>
   <div class="post-body">
     <%= image_tag(post.image ? post.image : "avatar_default.png", :size => "600x600", 
-                                          :class => "post-img") %>
+                                          :class => "post-img", :'data-parent' => post.id ) %>
+    <div class="icon l-b-w"></div>                                          
   </div>
   <footer class="post-footer">
     <div class="post-loves">

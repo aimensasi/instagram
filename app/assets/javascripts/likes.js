@@ -17,6 +17,25 @@ $(document).ready(function(){
 		}
 	});
 
+	$('.post-img').on('dblclick', function(){
+		var $postImg = $(this);
+		var parent = $postImg.attr('data-parent');
+		var $loveBtn = $('.l-' + parent);
+		
+		$postImg.next('.icon').css('opacity', '1');
+
+		setTimeout(function(){
+			$postImg.next('.icon').css('opacity', '0');
+		}, 900);
+		
+		if ($loveBtn.hasClass('l-r')) {
+			return;
+		}else{
+			$loveBtn.trigger('click');
+		}
+		
+	});
+
 	function ajaxRequest(action, type){
 		$.ajax({
 			url: action,
