@@ -20,19 +20,6 @@ $(document).ready(function(){
 		ajaxRequest(url, type);
 	});
 
-	// $followBtn.on('click', function(){
-	// 	console.log('Follow');
-	// 	var url = '/users/'+ $(this).attr('data-parent') +'/relations';
-	// 	console.log(url);
-	// 	ajaxRequest(url, 'post');
-	// });
-
-	// $unfollowBtn.on('click', function(){
-	// 	console.log('UnFollow');
-	// 	var url = '/users/'+ $(this).attr('data-parent') +'/relations/0';
-	// 	ajaxRequest(url, 'delete');
-	// });
-
 	function ajaxRequest(url, type){
 		$.ajax({
 			url: url,
