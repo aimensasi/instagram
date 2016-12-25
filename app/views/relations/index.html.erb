@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Relations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @relations.each do |relation| %>
+      <tr>
+        <td><%= link_to 'Show', relation %></td>
+        <td><%= link_to 'Edit', edit_relation_path(relation) %></td>
+        <td><%= link_to 'Destroy', relation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Relation', new_relation_path %>

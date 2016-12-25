@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :relations
   post 'sessions/' => 'sessions#create'
   delete '/log_out' => 'sessions#destroy'
 
