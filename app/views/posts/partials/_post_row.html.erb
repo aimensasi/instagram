@@ -17,13 +17,26 @@
     <div class="username flex-row">
       <p class="post-caption">
         <%= link_to(post.user.username, user_path(post.user) , :class => "link-to") %>
-        <%= post.caption %>
+        <% if post.caption.length > 215 %>
+          <%= truncate(post.caption, :length => 215) { link_to "Read More", "#", 
+              :class => 'read-more', :'data-parent' => "#{post.id}"} %>
+
+          <script type="text/javascript">
+            $('.read-more[data-parent="<%= post.id %>"]').on('click', function(e) {
+              e.preventDefault();
+              $(this).parent().html('<%= escape_javascript post.caption %>');
+            });
+          </script>    
+          
+        <% else %>
+          <%= post.caption %>
+        <% end %>
       </p>  
     </div>
     <div class="post-comments flex-col">
       <h6 class="view-more"><%= pluralize(post.comments.count, 'Comment') %></h6>
       <div class="comments-list" data-parent="<%= post.id %>">
-        <% post.comments.each do |comment| %>
+        <% post.recent_comments.each do |comment| %>
           <%= render :partial => "comments/partials/comment_row", :locals => {:comment => comment} %>
         <% end %>
       </div>

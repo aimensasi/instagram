@@ -38,4 +38,8 @@ class Post < ApplicationRecord
   def username
   	user.username
   end
+
+  def recent_comments
+    comments.order(:created_at => :DESC).limit(5)
+  end
 end
