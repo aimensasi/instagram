@@ -28,21 +28,22 @@
 				border: 1px solid $dark-gray;
 				color: $dark-gray;
 			}
-			.link-to-unfollow{
+			.btn-unfollow{
 				border: 1px solid $error-color;
 				color: $error-color;
 			}
-			.link-to-follow{
+			.btn-follow{
 				border: 1px solid $success-color;
 				color: $success-color;
 			}
-			.link-to-unfollow,
-			.link-to-follow,
+			.btn-unfollow,
+			.btn-follow,
 			.link-to-edit{
 				height: 31px;
 				padding: 5px 16px;
 				border-radius: 3px;
 				margin-left: 20px;
+				background: transparent;
 			}
 			.more{	
 				margin-left: 15px;

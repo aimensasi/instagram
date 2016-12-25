@@ -61,6 +61,15 @@ textarea:-moz-placeholder { /* Firefox 4 - 18 */
 	text-decoration: none;
 }
 
+.turbolinks-progress-bar{
+	background-color: #ff5a5f !important;
+	color: #ff5a5f !important;
+}
+
+.hide{
+	display: none;
+}
+
 .mb-6{
 	margin-bottom: 6rem !important;
 }

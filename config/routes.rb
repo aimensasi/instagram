@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
+  
+
   post 'sessions/' => 'sessions#create'
   delete '/log_out' => 'sessions#destroy'
 
 	get "/sign_up" => "users#new"
   
-  resources :users, :except => [:new]
+  resources :users, :except => [:new] do
+    resources :relations, :only => [:create, :destroy]
+  end
   
   resources :posts do 
   	resources :comments, :only => [:create]

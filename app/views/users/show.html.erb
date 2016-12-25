@@ -8,7 +8,7 @@
       <div class="col-md-6 offset-1">
         <div class="profile-info flex-col">
           <div class="row row-1 flex-row">
-            <h4 class="username">AimenSasi</h4>
+            <h4 class="username"><%= @user.username %></h4>
             <% if is_owner @user %>
               <%= link_to("Edit Profile", edit_user_path(@user), :class => "btn link-to-edit") %>
               <div class="dropdown">
@@ -20,8 +20,21 @@
                 </div>
               </div>
             <% else %>
-              <%= link_to("Follow", edit_user_path(@user), :class => "btn link-to-follow") %>
-              <%= link_to("Unfollow", edit_user_path(@user), :class => "btn link-to-unfollow") %>
+              <% if  @user.followers.include?(current_user)%>
+                <button class="btn btn-unfollow" data-method="delete" data-parent="<%= @user.id %>">
+                  Unfollow
+                </button>
+                <button class="btn btn-follow hide" data-method="post" data-parent="<%= @user.id %>">
+                  Follow
+                </button>
+              <% else %>
+                <button class="btn btn-follow" data-method="post" data-parent="<%= @user.id %>">
+                  Follow
+                </button>
+                <button class="btn btn-unfollow hide" data-method="delete" data-parent="<%= @user.id %>">
+                  Unfollow
+                </button>
+              <% end %>
             <% end %>
           </div>
           <div class="row row-2 flex">
