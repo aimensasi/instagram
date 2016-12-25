@@ -14,6 +14,7 @@ class Post < ApplicationRecord
 	belongs_to :user
   has_many :comments, :dependent => :destroy
   has_many :likes, :dependent => :destroy
+  # has_many :users, :through => :likes
 
 	validates :media, :presence => true
 	validates :user, :presence => true
@@ -21,6 +22,8 @@ class Post < ApplicationRecord
 	mount_uploader :media, PostImg
 
   scope :recent, -> { order(:created_at => :ASC) }
+
+  scope :following_posts, -> (followings) { where :user_id => followings}
 
   def image
 	 	return nil unless  media.file.present?

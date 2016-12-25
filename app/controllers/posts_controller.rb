@@ -3,8 +3,9 @@ class PostsController < ApplicationController
   before_action :require_login
   
   def index
-    @posts = Post.recent.limit(10)
+    # @posts = Post.recent.limit(10)
     @post = Post.new
+    @posts = Post.following_posts(current_user.followings).recent
   end
 
   def create
