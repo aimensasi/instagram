@@ -41,9 +41,14 @@
         <% end %>
       </div>
       <div class="react flex-row">
-        <div class="icon l-e-g" id="new-love"></div>
+        <% if like = post.user_like(current_user) %>
+          <div class="icon l-r react-plus l-<%= post.id %>" data-action="posts/<%= post.id %>/likes/<%= like.id %>">
+          </div>
+        <% else %>
+          <div class="icon l-e-g react-plus l-<%= post.id %>" data-action="posts/<%= post.id %>/likes"></div>
+        <% end %>
+        
         <%= form_for [post, Comment.new], :html => {:class => 'new-comment'} do |f| %>
-          <!-- <input type="text" class="comment" id="new-comment" placeholder="Add a comment..."> -->
           <%= f.text_field :text, :class => "comment", :placeholder => "Add a comment... ", :autocomplete => 'off' %>
         <% end %>
       </div>

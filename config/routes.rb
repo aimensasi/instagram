@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  
   post 'sessions/' => 'sessions#create'
   delete '/log_out' => 'sessions#destroy'
 
@@ -9,7 +8,8 @@ Rails.application.routes.draw do
   resources :users, :except => [:new]
   
   resources :posts do 
-  	resources :comments
+  	resources :comments, :only => [:create]
+  	resources :likes, :only => [:create, :destroy]
   end
   
   root "posts#index"
