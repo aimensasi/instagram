@@ -11,6 +11,11 @@
 		  margin-right: auto;
 		  margin-top: 3px;
 		  margin-left: 10px;
+		  text-decoration: none;
+		  transition: color .5s;
+		  &:hover{
+		  	color: rgba(32, 169, 152, 0.7);
+		  }
 		}
 		.profile-img{
 			width: 28px;
@@ -41,10 +46,16 @@
 		  font-size: 15px;
 		  color: #222;
 		}
-		.link-to {
+		.link-to,
+		.read-more{
 		  color: #222;
 		  font-weight: 500;
 		  margin-right: 6px;
+		  text-decoration: none; 
+		  transition: color .5s;
+		  &:hover{
+				color: #999;
+		  }
 		}
 	}
 
@@ -70,17 +81,24 @@
 		  		text-decoration: none;
 		  	}
 		  	.comment{
-					font-weight: 100;
-					margin-bottom: 0;	  		
+					margin-bottom: 0;
+					text-transform: lowercase;
+					font-weight: 400;	  		
 		  	}
 		  }
 		}
 		.react{
 			border-top: 1px solid #efefef;
 			padding: 20px 0;
+			form{
+				width: 90%;
+			}
 			.comment{
 				border: none;
 				margin-left: 18px;
+				width: 100%;
+				font-size: 14px;
+				color: #999;
 			}
 		}		
 	}	

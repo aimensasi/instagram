@@ -1,0 +1,17 @@
+
+var $commentCout = $('.post-row[data-parent="<%= @comment.post.id %>"]').find('.view-more')
+
+var comments = $commentCout.text();
+comments = parseInt(comments.substr(0,comments.indexOf(' '))) + 1;
+
+
+$commentCout.text(comments + " Comments");
+
+
+
+
+
+
+$('.comments-list[data-parent="<%= @comment.post.id %>"]')
+.append("<%= j render(:partial => 'comments/partials/comment_row', 
+											 :locals => {:comment => @comment })%>");

@@ -12,6 +12,7 @@
 
 class Post < ApplicationRecord
 	belongs_to :user
+  has_many :comments, :dependent => :destroy
 
 	validates :media, :presence => true
 	validates :user, :presence => true
@@ -36,5 +37,9 @@ class Post < ApplicationRecord
 
   def username
   	user.username
+  end
+
+  def recent_comments
+    comments.order(:created_at => :DESC).limit(5)
   end
 end

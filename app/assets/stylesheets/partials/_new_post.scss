@@ -9,12 +9,18 @@
 	  	position: relative;
 	  	padding-bottom: 5px;
 	  	.btn-file{
+	  		margin-bottom: 18px;
+	  		width: 90%;
+	  		border-bottom: 1px solid #eee;
+	  		padding-bottom: 15px;
+	  		margin-left: auto;
+	  		margin-right: auto;
 				.inputfile{
 					display: none;
 				}	  		
 				.title {
 					margin-top: 10px;
-					margin-left: 27px;
+					margin-left: 10px;
 					padding-top: 3px;
 					color: #999;
 					font-weight: 300;
@@ -24,13 +30,18 @@
 				  background-position: -280px -89px;
 				  width: 25px;
 				  margin-left: auto;
-				  margin-right: 28px;
+				  margin-right: 13px;
 				  margin-top: 13px;
 				}
 	  	}
 	  	.post-media{
 	  		display: none;
-	  		margin-top: 8px;
+	  		margin-top: 2px;
+	  		border-top: 1px solid #eee;
+	  		padding-top: 0px;
+	  		width: 99%;
+	  		margin-left: auto;
+	  		margin-right: auto;
 	  	}
 	  }
 	}
@@ -70,49 +81,4 @@
 
 }
 
-
-.new-post .form .form-body .btn-file .title {
-    margin-top: 10px;
-    margin-left: 10px;
-    padding-top: 3px;
-    color: #999;
-    font-weight: 300;
-    font-size: 16px;
-}
-
-label.btn-file.flex-row {
-    margin-bottom: 18px;
-    width: 90%;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 15px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.new-post .form .form-body .btn-file .icon-add {
-    background-position: -280px -89px;
-    width: 25px;
-    margin-left: auto;
-    margin-right: 13px;
-    margin-top: 13px;
-}
-
-.new-post .form .form-body .post-media {
-    display: none;
-    margin-top: 2px;
-    border-top: 1px solid #eee;
-    padding-top: 0px;
-    width: 99%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.new-post .form-footer {
-    padding: 10px 24px;
-    border-top: 1px solid #efefef;
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-}
 
