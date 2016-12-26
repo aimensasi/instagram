@@ -1,0 +1,2 @@
+module DiscoveryHelper
+end

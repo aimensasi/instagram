@@ -1,0 +1,18 @@
+
+<% if user.nil? %>
+	<a href="" class="link-to">
+		<div class="search-row empty-row flex-row">
+		  <h5 class="no-result">No Result Found</h5>
+		</div>
+	</a>
+<% else %>
+	<%= link_to user_path(user), :class => "link-to" do  %>
+		<div class="search-row flex-row">
+		  <%= image_tag(user.pic ? user.pic : 'avatar_default.png', :class => "user-pic rounded-circle", :size => "32x32") %>
+		  <div class="user-info">
+		    <h5 class="username"><%= user.username %></h5>
+		    <h6 class="name"><%= user.name %></h6>
+		  </div>
+		</div>
+	<% end %>
+<% end %>

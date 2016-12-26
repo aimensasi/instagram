@@ -1,0 +1,34 @@
+<div class="row discovery">
+  <div class="card">
+    <div class="card-header">
+      Discover People
+    </div>
+    <% @users.each do |user| %>
+      <div class="card-block">
+        <div class="flex-row block-header">
+          <%= image_tag(user.pic ? user.pic : 'avatar_default.png', :class => "profile-img rounded-circle", :size => "28x28") %>
+          <%= link_to(user.username, user_path(user), :class => "post-username") %>
+          <button class="btn btn-follow" data-method="post" data-parent="<%= user.id %>">
+            Follow
+          </button>
+          <button class="btn btn-unfollow hide" data-method="delete" data-parent="<%= user.id %>">
+            Unfollow
+          </button>
+        </div>
+        <div class="flex-row block-body">
+          <% 3.times do |n| %>
+            <% if user.posts[n].nil? %>
+              <div class="col-md-4">
+                <%= image_tag('post_img_default.png', :class => "post-img", :size => "185x185") %>
+              </div>
+            <% else %>
+              <div class="col-md-4">
+                <%= image_tag(user.posts[n].thumbnail, :class => "post-img", :size => "185x185") %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>  
+    <% end %>
+  </div>
+</div>

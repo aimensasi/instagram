@@ -1,0 +1,12 @@
+$('#search-result').empty();
+$('#search-result').removeClass('hide-result');
+
+<% if @users.empty? %>
+	$('#search-result').append("<%= j render(partial: 'discovery/partials/result_row', 
+																					 locals: { user: nil }) %>");
+<% else %>
+	<% @users.each do |user| %>
+	$('#search-result').append("<%= j render(partial: 'discovery/partials/result_row', 
+																					 locals: { user: user }) %>");
+	<% end %>
+<% end %>

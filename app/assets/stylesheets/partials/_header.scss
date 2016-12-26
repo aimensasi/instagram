@@ -55,10 +55,15 @@
 
 .navbar{
 	.navbar-nav{
+		.hide-result{
+			pointer-events: none !important; //To Be Removed When Vsisible
+			opacity: 0 !important;
+		}
 		.search-result{
-			pointer-events: none; //To Be Removed When Vsisible
 			position: absolute;
-			min-height: 67px;
+			min-height: 42px;
+			max-height: 404px;
+			overflow: scroll;
 			width: 241px;
 			background: #fff;
 			padding: 0;
@@ -67,8 +72,9 @@
 			border: solid 1px #dbdbdb;
 			border-radius: 3px;
 			box-shadow: 0 0 5px rgba(0,0,0,.13);
-			opacity: 0;
 			transition: opacity .5s;
+			z-index: 5;
+			-webkit-overflow-scrolling: touch;
 			&::after{
 				content: ' ';
 				position: absolute;
@@ -121,6 +127,18 @@
 				}
 			}
 		}
+	}
+}
+
+.search-result{
+	.empty-row{
+		height: 40px !important;
+		h5.no-result {
+	    font-size: 15px;
+	    color: #999;
+	    text-align: center;
+	    margin: auto;
+  	}
 	}
 }
 

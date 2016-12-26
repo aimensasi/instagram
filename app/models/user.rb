@@ -17,11 +17,13 @@
 #
 
 class User < ApplicationRecord
+	include PgSearch
 	mount_uploader :avatar, AvatarUploader
 	
 	EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
 	has_secure_password
+
 
 	has_many :posts, :dependent => :destroy
 	has_many :comments, :dependent => :destroy
@@ -47,6 +49,13 @@ class User < ApplicationRecord
 	validates :password, :presence => true, :on => :create
 	validates :password, :length => {:minimum => 6, :maximum => 70 }, :allow_blank => true
 	
+
+	pg_search_scope :by_username, :against => :username, using: { :tsearch => {:prefix => true, :any_word => true} }
+
+	scope :unFollowed, -> (followings) {
+		return all unless followings.present?
+		where.not(:id => followings.ids)
+	}
 
 
   def profile_pic

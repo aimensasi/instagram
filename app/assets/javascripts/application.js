@@ -20,4 +20,4 @@
 
 
 // Initiate Loggers as Desktop Notification
-logger.init();
+// logger.init();
