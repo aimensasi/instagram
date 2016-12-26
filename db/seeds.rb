@@ -1,3 +1,20 @@
+# user = User.new({
+# 	:name => Faker::Name.name,
+# 	:username => Faker::Internet.user_name,
+# 	:email => Faker::Internet.email,
+# 	:bio => Faker::Lorem.paragraph(3),
+# 	:phone_number => Faker::PhoneNumber.phone_number,
+# 	:gender => ['male', 'female'].sample,
+# 	:password => "123123",
+# 	:avatar => 
+# })
+
+# if user.save
+# 	puts "Created User Number #{n}"
+# else
+# 	puts "ERROR:::=>> #{user.errors.full_messages}"
+# end
+
 # 10.times do |n|
 # 	user = User.new({
 # 		:name => Faker::Name.name,

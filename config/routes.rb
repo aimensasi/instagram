@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  
+  get "/discovery" => "discovery#index"
+  get "/search" => "discovery#search"
+
 
   post 'sessions/' => 'sessions#create'
   delete '/log_out' => 'sessions#destroy'

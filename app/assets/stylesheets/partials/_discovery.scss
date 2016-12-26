@@ -1,0 +1,79 @@
+// $btn-default: #3897f0;
+// $bg-color: #fafafa;
+// $black: #222;
+// $white: #fff;
+// $dark-gray: #999;
+// $light-gray: #dbdbdb;
+// $error-color: #ff5a5f;
+// $success-color: rgba(32, 169, 152, 0.77);
+
+.discovery{
+	margin-top: 60px;
+	width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+	.card{
+		background: $white;
+		border-radius: 0;
+		.card-header{
+			background-color: $white;
+			color: $dark-gray;
+			font-size: 17px;
+			border: none;
+			height: 58px;
+			padding-top: 18px;
+		}
+		.card-block{
+			height: 260px;
+			padding: 0;
+			width: 600px;
+			margin-bottom: 10px;
+			border-top: 1px solid $light-gray;
+			.block-header{
+				padding: 15px 15px 1px;
+				.post-username {
+				  color: #222;
+				  margin-right: auto;
+				  margin-top: 3px;
+				  margin-left: 10px;
+				}
+				.btn-follow,
+				.btn-unfollow {
+				  height: 28px;
+				  width: 115px;
+				  background: transparent;
+				  border: 1px solid $btn-default;
+				  color: $btn-default;
+				  padding-top: 4px;
+				}
+				.btn-unfollow{
+					border: 1px solid $error-color;
+				  color: $error-color;
+				}
+				.profile-img{
+					width: 28px;
+					height: 28px;
+				}
+			}
+
+			.block-body{
+				padding-top: 5px;
+				padding-left: 17px;
+				margin-top: 10px;
+				.col-md-4{
+					padding: 0;
+					width: 191px;
+				}
+				.post-img{
+					width: 185px;
+					height: 185px;
+				}
+			}
+		}
+	}
+
+}
+
+
+
+
