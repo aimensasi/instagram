@@ -39,8 +39,12 @@
           </div>
           <div class="row row-2 flex">
             <a href="#" class="posts disabled"><strong><%= @user.posts.count %></strong> Posts</a>
-            <%= link_to("230 Followers", "#" , :class => "followers") %>
-            <%= link_to("20 Followers", "#" , :class => "following") %>
+            <%= link_to "#", :class => "followers disabled" do  %>
+              <strong><%= @user.followers.count %></strong> Followers
+            <% end %>
+            <%= link_to "#", :class => "following disabled" do  %>
+              <strong><%= @user.followings.count %></strong> Followings
+            <% end %>
           </div>
           <div class="row row-3">
             <p class="bio">
@@ -62,12 +66,12 @@
                 <!-- Post Loves -->
                 <div class="wrap flex-row">
                   <div class="icon l-f"></div>
-                  <h3 class="l-number">25</h3>  
+                  <h3 class="l-number"><%= post.likes.count %></h3>  
                 </div>
                 <!-- Post Comments -->
                 <div class="wrap flex-row">
                   <div class="icon c-f"></div>
-                  <h3 class="c-number">30</h3>  
+                  <h3 class="c-number"><%= post.comments.count %></h3>  
                 </div>
 
               </div>
