@@ -174,3 +174,12 @@ textarea:-moz-placeholder { /* Firefox 4 - 18 */
   cursor: default;
   text-decoration: none;
 }
+
+.posts{
+	.empty-list {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    color: #999;
+	}
+}
