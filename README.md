@@ -9,3 +9,5 @@ for learning purposes
 * Rails version => 5.0.0
 
 * Database => PostgreSQL
+
+* App Url => https://instagram-salted.herokuapp.com
