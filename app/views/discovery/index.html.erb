@@ -22,7 +22,7 @@
                 <%= image_tag('post_img_default.png', :class => "post-img", :size => "185x185") %>
               </div>
             <% else %>
-              <div class="col-md-4">
+              <div class="col-md-4 mmm">
                 <%= image_tag(user.posts[n].thumbnail ? user.posts[n].thumbnail : 'post_img_default.png' , :class => "post-img", :size => "185x185") %>
               </div>
             <% end %>
